@@ -106,7 +106,7 @@ const Teamleader_Sidebar = ({ name = "none" }) => {
                     )}
                   </div>
                   {expandedItems[link.name] && (
-                    <div className="pl-10 py-2">
+                    <div className="py-2 pl-10">
                       <NavLink
                         to={link.link}
                         className="text-[13px] text-gray-500 hover:text-[#269F8B]"
