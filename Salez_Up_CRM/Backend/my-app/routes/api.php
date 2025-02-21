@@ -221,7 +221,11 @@ Route::delete('/admin_portal_login/{id}', [AdminPortalDataController::class, 'de
 
 
 
+// routes/api.php
+use App\Http\Controllers\JsonDataController;
 
+Route::get('/testing-json', [JsonDataController::class, 'getData']);
+Route::post('/updateJson', [JsonDataController::class, 'updateData']);
 
 
 /*

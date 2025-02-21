@@ -49,6 +49,18 @@ import Actual_Vs_Target_logic from "./Dashboard/testing/Actual_Vs_Target_logic";
 import Actual_Vs_Target_logic_teamleader from "./Dashboard/testing/Actual_Vs_Target_logic_teamleader";
 import TeamLeader_Main_dashboard from "./Dashboard/TeamLeader_Main_dashboard";
 
+
+// HR Modules //
+
+import HRDashboard from "./Dashboard/HR Module/hrDashboard";
+
+
+import TestingJsonUpdation from './JsonUpdation';
+
+import Insights_Button from "./Insights/Insights_Button";
+
+
+
 function App() {
   return (
     <>
@@ -126,7 +138,22 @@ function App() {
             <Route path="/actual_vs_target_logic_teamleader" element={<Actual_Vs_Target_logic_teamleader/>} />
 
 
-       
+            {/* HR Module */}
+
+            
+            <Route path="/hr" element={<HRDashboard/>} />
+
+            <Route path="/test_json" element={<TestingJsonUpdation/>} />
+
+            <Route path="/insights" element={<Insights_Button/>} />
+
+
+
+
+
+
+
+         
           </Routes>
         </BrowserRouter>
       </ResponseContextProvider>

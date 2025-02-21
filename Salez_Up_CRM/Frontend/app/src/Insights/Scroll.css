@@ -1,0 +1,21 @@
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px; /* Thin scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #c3c7cd;
+    border-radius: 10px;
+    min-height: 10px; /* Set a smaller minimum height */
+    max-height: 10px; /* Prevent it from being too long */
+    height:10px; /* Adjust dynamically based on content */
+    transition: background 0.3s;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #1f8675;
+}
