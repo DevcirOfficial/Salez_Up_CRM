@@ -102,7 +102,7 @@ const PerformanceTable = () => {
                     console.log("Error nhi hai data hi nhi hai")
                 }
             } catch (error) {
-                toast.error("Error Fetching Sales Agent Data")
+           //     toast.error("Error Fetching Sales Agent Data")
             }
         }
         
@@ -208,7 +208,7 @@ const PerformanceTable = () => {
                             <div className='flex flex-col'>
 
 
-                                <div className="flex justify-between items-center mb-4 p-4">
+                                <div className="flex items-center justify-between p-4 mb-4">
                                     <h1 className="font-medium text-2xl text-[#269F8B]">My Performance</h1>
 
                                     <div className="flex items-center gap-2">
@@ -263,12 +263,12 @@ const PerformanceTable = () => {
                             </div>
                             {/* Performance Table */}
                             {view === 'all' && (
-                                <div className='bg-white rounded-lg shadow-sm overflow-hidden border-2 border-gray-100'>
+                                <div className='overflow-hidden bg-white border-2 border-gray-100 rounded-lg shadow-sm'>
                                     <div className='p-6'>
 
                                         <table className='w-full'>
                                             <thead>
-                                                <tr className='text-left text-sm text-gray-500'>
+                                                <tr className='text-sm text-left text-gray-500'>
                                                     <th className='pb-2 text-[#269F8B]'></th>
                                                     <th className='pb-2 text-[#269F8B] text-center'>Target</th>
                                                     <th className='pb-2 text-[#269F8B] text-center'>Actual</th>
@@ -333,7 +333,7 @@ const PerformanceTable = () => {
                                                                     {getFormattedValue(row.kpi, actualValue)}
                                                                 </td>
 
-                                                                <td className="py-2 px text-center">
+                                                                <td className="py-2 text-center px">
                                                                     <span
                                                                         className={`inline-block px-2 py-1 w-24 text-center ${getPercentColor(
                                                                             percentToTarget
@@ -365,7 +365,7 @@ const PerformanceTable = () => {
                                                     })
                                                 ) : (
                                                     <tr>
-                                                        <td colSpan="7" className="text-center py-4 text-gray-500">
+                                                        <td colSpan="7" className="py-4 text-center text-gray-500">
                                                             Select a team to view KPI data
                                                         </td>
                                                     </tr>

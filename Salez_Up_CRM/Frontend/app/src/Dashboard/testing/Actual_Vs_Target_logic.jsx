@@ -103,8 +103,8 @@ const Actual_Vs_Target_logic = () => {
   };
 
   return (
-    <div className="w-full p-4  rounded-lg shadow-lg bg-white">
-      <div className="flex justify-between items-center mb-2 relative">
+    <div className="w-full p-4 bg-white rounded-lg shadow-lg">
+      <div className="relative flex items-center justify-between mb-2">
         <h3 className="text-xl text-[#009245]">Actual vs Target</h3>
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
@@ -154,7 +154,7 @@ const Actual_Vs_Target_logic = () => {
       </div>
 
       <ComposedChart
-        width={950}
+        width={1200}
         height={300}
         data={chartData}
         margin={{ top: 30, right: 30, left: 20, bottom: 5 }}

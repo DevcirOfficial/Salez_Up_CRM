@@ -60,6 +60,16 @@ import TestingJsonUpdation from './JsonUpdation';
 import Insights_Button from "./Insights/Insights_Button";
 
 
+// New Commmission //
+
+import NewCommission from './New_Commission_Logic/NewCommission'
+
+import OverallPot from "./New_Commission_Logic/Layout/pages/OverallPot";
+import Pot from "./New_Commission_Logic/Layout/pages/Pot";
+
+
+import PerformanceTable from "./Dashboard/PerformanceTable";
+
 
 function App() {
   return (
@@ -148,13 +158,30 @@ function App() {
             <Route path="/insights" element={<Insights_Button/>} />
 
 
+            {/* Commission Page */}
+
+            <Route path="/cr7" element={<PerformanceTable />} />
 
 
 
+
+{/* // Commission Logic // */}
+
+
+<Route path="/new_commission" element={< NewCommission/>} />
+<Route path="/overall_pot" element={<OverallPot />} />
+<Route path="/potLevel" element={<Pot/>} />
 
 
          
+
+
+
           </Routes>
+          
+
+   
+       
         </BrowserRouter>
       </ResponseContextProvider>
     </>

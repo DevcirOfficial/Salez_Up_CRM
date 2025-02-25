@@ -201,12 +201,12 @@ const MainContent = ({ activeSection }) => {
       case 'contests':
         return (
 
-          <div className="bg-white  rounded-xl">
+          <div className="bg-white rounded-xl">
             <h2 className="text-3xl font-semibold mb-6 text-[#1d8675]">Contest Summary</h2>
 
             <EditableTimeStats />
 
-            <div className="flex h-24 px-4 space-x-10 rounded-lg bg-transparent mb-6">
+            <div className="flex h-24 px-4 mb-6 space-x-10 bg-transparent rounded-lg">
               {mainStats.map((stat, index) => (
                 <EditableStatCard key={index} {...stat} />
               ))}
@@ -216,9 +216,9 @@ const MainContent = ({ activeSection }) => {
               {summary.prizes.map((prize, index) => (
                 <div
                   key={index}
-                  className="px-8 p-4 flex items-center justify-between bg-white rounded-lg shadow-xl hover:shadow-lg transition-shadow"
+                  className="flex items-center justify-between p-4 px-8 transition-shadow bg-white rounded-lg shadow-xl hover:shadow-lg"
                 >
-                  <div className="flex items-center  space-x-3">
+                  <div className="flex items-center space-x-3">
                     <img src={prize.iconSrc} alt={prize.name} className="w-[39.2px] h-[32px]" />
                     <p className="text-[#000000] text-sm font-normal">{prize.name}</p>
                   </div>
@@ -242,10 +242,10 @@ const MainContent = ({ activeSection }) => {
       case 'forecast':
         return (
 
-          <div className="bg-gray-100 max-w-3xl mx-auto p-4 rounded-xl mt-24">
+          <div className="max-w-3xl p-4 mx-auto mt-24 bg-gray-100 rounded-xl">
             <h1 className='text-[#269F8B] text-2xl font-semibold text-center mt-6'>Forecast Commission</h1>
-            <div className="grid grid-cols-2 gap-10 justify-center mt-20">
-              <div className="p-4 flex flex-col items-start bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="grid justify-center grid-cols-2 gap-10 mt-20">
+              <div className="flex flex-col items-start p-4 transition-shadow bg-white rounded-lg shadow-md hover:shadow-lg">
                 <p className="text-[#000000] text-xl font-normal mb-2">Actual Value</p>
                 <input
                   type="number"
@@ -254,7 +254,7 @@ const MainContent = ({ activeSection }) => {
                   className="bg-white shadow-lg p-2 text-[#269F8B] text-lg font-semibold shadow-[#00A46C26] rounded w-full"
                 />
               </div>
-              <div className="p-4 flex flex-col items-start bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex flex-col items-start p-4 transition-shadow bg-white rounded-lg shadow-md hover:shadow-lg">
                 <p className="text-[#000000] text-xl font-normal mb-2">Target Value</p>
                 <input
                   type="number"

@@ -5,8 +5,126 @@ import PerformanceTable from './PerformanceTable';
 import Intro from './Intro'
 import My_Commission from './My_Commission'
 import ContestSummary from './ContestSummary';
+import  { Suspense } from "react";
+import dataJson from '../Data.json';
+import fetchAgents from '../Dashboard/My_Commission';
+
+
+
 
 const SalesAgent_Main_dashboard = () => {
+    
+// Preloading Pages //
+
+
+useEffect(() => {
+    // Preload the route component before navigation
+    import("../Dashboard/testing/Dashboard_Contest_Forecast");
+   
+  }, []);
+
+
+const [summary, setSummary] = useState(() => {
+
+
+    const savedSummary = localStorage.getItem('contestSummary');
+    if (savedSummary) {
+      return JSON.parse(savedSummary);
+    }
+    return {
+      contests: 2,
+      points: 200,
+      totalPrizes: 150,
+      prizes: [
+        { name: 'Cash', amount: 50, iconSrc: '/images/cash.png' },
+        { name: 'Vouchers', amount: 50, iconSrc: '/images/voucher.png' },
+        { name: 'Food', amount: 50, iconSrc: '/images/food.png' },
+        { name: 'Experiences', amount: 0, iconSrc: '/images/experience.png' }
+      ],
+      timeStats: {
+        icon: 'images/time.png',
+        label: 'Time',
+        value: 2
+      },
+      monthStats: {
+        icon: 'images/bag.png',
+        label: 'This Month',
+        value: 200
+      }
+    };
+  });
+
+  useEffect(() => {
+    const summaryJSON = {
+      time: summary.timeStats.value,
+      thisMonth: summary.monthStats.value,
+      contests: summary.contests,
+      points: summary.points,
+      totalPrizes: summary.totalPrizes,
+      prizes: {
+        cash: summary.prizes[0].amount,
+        vouchers: summary.prizes[1].amount,
+        food: summary.prizes[2].amount,
+        experiences: summary.prizes[3].amount
+      }
+    };
+    localStorage.setItem('contestSummary', JSON.stringify(summary));
+  }, [summary]);
+
+
+  useEffect(() => {
+    const total = summary.prizes.reduce((sum, prize) => sum + prize.amount, 0);
+    setSummary(prev => ({ ...prev, totalPrizes: total }));
+  }, [summary.prizes]);
+
+
+
+
+///////////////////////Actual Page ////////////////////
+
+const processValue = (value) => {
+    // Remove currency signs
+    let cleanedValue = value.replace(/[£$€]/g, '').replace(/,/g, '');
+    
+    // Convert percentage to decimal
+    if (value.includes('%')) {
+        cleanedValue = (parseFloat(cleanedValue) / 100).toFixed(2);
+    }
+    
+    // Convert to number if possible, otherwise return as string
+    return isNaN(parseFloat(cleanedValue)) ? cleanedValue : parseFloat(cleanedValue);
+};
+
+const [tableData, setTableData] = useState([]);
+
+useEffect(() => {
+    const storedData = localStorage.getItem('tableData1');
+    
+    if (storedData) {
+        setTableData(JSON.parse(storedData));
+    } else {
+        // Process the data from dataJson
+        const extractedData = Object.keys(dataJson).map(dayKey => {
+            const dayData = dataJson[dayKey];
+            const dayName = Object.keys(dayData)[0];  // Get the day name (Monday, Tuesday, etc.)
+            const values = Object.values(dayData)[0];  // Get the array of values
+            
+            // Process each value
+            const processedValues = values.map(processValue);
+            
+            return { dayName, values: processedValues };
+        });
+
+        localStorage.setItem('tableData1', JSON.stringify(extractedData));
+        setTableData(extractedData);
+    }
+}, []);
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+
     
     const [localStorageData, setLocalStorageData] = useState([]);
 
@@ -84,16 +202,96 @@ const SalesAgent_Main_dashboard = () => {
         };
     }, []);
 
+
+///////////////////////////////////////////////////////////////////////////////////// 
+
+
+
+
+// const [forcastPrize, setForcastPrize] = useState("");
+
+// useEffect(() => {
+//   const updatePrize = () => {
+//     const mydata = localStorage.getItem("contestSummary");
+
+//     if (mydata) {
+//       try {
+//         const parsedData = JSON.parse(mydata);
+//         console.log("Contest Data:", parsedData);
+
+//         if (parsedData.totalPrizes !== undefined) {
+//           setForcastPrize(parsedData.totalPrizes);
+//           console.log("Total Prize:", parsedData.totalPrizes);
+//         }
+//       } catch (error) {
+//         console.error("Error parsing JSON:", error);
+//       }
+//     }
+//   };
+
+//   updatePrize();
+
+//   // Listen for changes in localStorage
+//   window.addEventListener("storage", updatePrize);
+
+//   return () => {
+//     window.removeEventListener("storage", updatePrize);
+//   };
+// }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
     return (
         <div className='mx-2'>
+
+
+
+
             <Navbar />
-            <div className='w-full flex flex-row'>
+            <div className='flex flex-row w-full'>
                 <div className="w-[21%]">
                     <Agent_Sidebar/>
                 </div>
                 <div className="w-[79%] flex flex-col overflow-hidden">
                     <Intro />
-                    <My_Commission />
+           
+                    <My_Commission  />
                     <PerformanceTable />
                     <ContestSummary />
                 </div>

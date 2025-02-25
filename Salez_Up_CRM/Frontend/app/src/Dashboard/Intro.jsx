@@ -111,19 +111,19 @@ const Intro = () => {
 
   return (
 
-    <div className="w-full px-4 md:px-4 lg:px-4 mt-4 md:mt-8 flex flex-col gap-6 md:gap-8">
-      <div className="flex flex-col w-full gap-6 p-4 md:p-8 card rounded-xl bg-white shadow-sm">
+    <div className="flex flex-col w-full gap-6 px-4 mt-4 md:px-4 lg:px-4 md:mt-8 md:gap-8">
+      <div className="flex flex-col w-full gap-6 p-4 bg-white shadow-sm md:p-8 card rounded-xl">
 
-        <div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-8">
+        <div className="flex flex-col items-start gap-6 lg:flex-row lg:gap-8">
           <div className="flex-1 w-full">
 
-            <h2 className="text-2xl md:text-4xl text-gray-600 mt-2 mb-4 md:mt-6 md:mb-6">
+            <h2 className="mt-2 mb-4 text-2xl text-gray-600 md:text-4xl md:mt-6 md:mb-6">
               <span className="font-bold">Good Morning</span>,
-              <span className="text-gray-600 font-medium text-xl md:text-2xl ml-2">{firstName}</span>
+              <span className="ml-2 text-xl font-medium text-gray-600 md:text-2xl">{firstName}</span>
             </h2>
 
             {/* Profile Info */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+            <div className="flex flex-col items-center gap-6 md:flex-row md:items-start">
               {/* Profile Image Container */}
               <div className="relative">
               <img
@@ -140,17 +140,17 @@ const Intro = () => {
                   <img
                     src={badge}
                     alt="Badge"
-                    className="w-full h-full object-cover rounded-full"
+                    className="object-cover w-full h-full rounded-full"
                   />
                 </div>
               </div>
 
               {/* Profile Details */}
               <div className="flex flex-col items-center md:items-start md:ml-6">
-                <p className="text-gray-500 text-lg md:text-xl mb-2">Sales Agent</p>
-                <h3 className="text-2xl md:text-3xl font-semibold text-gray-600">{fullName}</h3>
+                <p className="mb-2 text-lg text-gray-500 md:text-xl">Sales Agent</p>
+                <h3 className="text-2xl font-semibold text-gray-600 md:text-3xl">{fullName}</h3>
                 <button
-                  className="mt-4 px-4 py-2 w-full md:w-2/3 rounded-xl text-white"
+                  className="w-full px-4 py-2 mt-4 text-white md:w-2/3 rounded-xl"
                   style={{
                     background: badgeColor
                   }}
@@ -163,7 +163,7 @@ const Intro = () => {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full lg:w-auto mt-6 lg:mt-0">
+          <div className="grid w-full grid-cols-1 gap-8 mt-6 sm:grid-cols-2 lg:grid-cols-3 lg:w-auto lg:mt-0">
             {stats.map((stat, index) => (
               <div
                 key={index}
@@ -171,16 +171,16 @@ const Intro = () => {
                 style={{ borderColor: borderColor }}
               >
                 <div className="flex flex-col">
-                  <span className="text-gray-400 text-base md:text-lg">{stat.label}</span>
+                  <span className="text-base text-gray-400 md:text-lg">{stat.label}</span>
                   <div className="flex items-center gap-2 mt-2 md:mt-4">
                     <img
                       src={stat.icon}
                       alt={stat.label}
                       className="w-6 h-6 md:w-8 md:h-8"
                     />
-                    <span className="text-gray-800 text-lg md:text-xl font-normal">
+                    <span className="text-lg font-normal text-gray-800 md:text-xl">
                       {stat.prefix}{stat.value}
-                      {stat.suffix && <span className="text-gray-500 ml-1">{stat.suffix}</span>}
+                      {stat.suffix && <span className="ml-1 text-gray-500">{stat.suffix}</span>}
                     </span>
                   </div>
                 </div>
@@ -193,12 +193,12 @@ const Intro = () => {
         </div>
 
         {/* Tiers Section */}
-        <div className="-mx-4 md:-mx-8 -mb-4 md:-mb-8 mt-8 md:mt-24">
-          <div className="flex flex-wrap md:flex-nowrap justify-between items-center bg-gray-50 p-4 md:p-6 overflow-x-auto">
+        <div className="mt-8 -mx-4 -mb-4 md:-mx-8 md:-mb-8 md:mt-24">
+          <div className="flex flex-wrap items-center justify-between p-4 overflow-x-auto md:flex-nowrap bg-gray-50 md:p-6">
             {tiers.map((tier, index) => (
               <div key={index} className="flex flex-col items-center mx-2 md:mx-6 min-w-[100px]">
                 {/* Tier Icon */}
-                <div className="rounded-full mb-2 flex items-center justify-center">
+                <div className="flex items-center justify-center mb-2 rounded-full">
                   <img
                     src={tier.icon}
                     alt={tier.name}

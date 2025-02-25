@@ -253,7 +253,7 @@ const SignIn = () => {
           // Store user info in local storage
 
           console.log("This is my email: ", foundUser.email);
-          setIsAdminLoggedIn(true);
+          // setIsAdminLoggedIn(true);
 
         } else {
           console.log("----  Wrong Password  ----");
@@ -366,7 +366,7 @@ const SignIn = () => {
 
         </div>
         <div className='flex justify-between w-full'>
-          {type == "Manager" && (<p onClick={() => { navigate('/ForgotPassword') }} className='flex items-center ml-2 text-sm font-semibold underline text-themeGreen hover:no-underline cursor-pointer'>Forgot Password</p>)}
+          {type == "Manager" && (<p onClick={() => { navigate('/ForgotPassword') }} className='flex items-center ml-2 text-sm font-semibold underline cursor-pointer text-themeGreen hover:no-underline'>Forgot Password</p>)}
           <button onClick={handleSignin} className='bg-themeGreen rounded-[10px] font-[500] leading-[24px] tracking-[1%] text-[16px] [box-shadow:0px_8px_8px_0px_#40908433] w-[107px] h-[36px]'><span className='text-white'>Login</span></button>
         </div>
 

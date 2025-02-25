@@ -70,14 +70,14 @@ const Actual_page = () => {
     };
 
     return (
-        <div className=' w-full'>
+        <div className='w-full '>
             <div className=''>
                 <div className='w-full flex flex-col gap-[32px] mb-4'>
-                    <div className='bg-white rounded-lg shadow-sm overflow-hidden border-2 border-gray-100'>
+                    <div className='overflow-hidden bg-white border-2 border-gray-100 rounded-lg shadow-sm'>
                         <div className='p-6'>
                             <table className='w-full'>
                                 <thead>
-                                    <tr className='text-left text-sm font-medium text-gray-500'>
+                                    <tr className='text-sm font-medium text-left text-gray-500'>
                                         <th className='pb-2 px-4 py-2 text-[#269F8B] '>Day</th>
                                         <th className='pb-2 px-4 py-2 text-[#269F8B] text-center'>Average Monthly Revenue</th>
                                         <th className='pb-2 px-4 py-2 text-[#269F8B] text-center'>Total Revenue</th>
